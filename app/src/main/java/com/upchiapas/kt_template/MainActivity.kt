@@ -6,6 +6,7 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import com.upchiapas.kt_template.CalculadoraCu.CalculadoraCuaPage
+import com.upchiapas.kt_template.CalculadoraCu.CalculadoraCuaViewModel
 import com.upchiapas.kt_template.ui.theme.Kt_templateTheme
 import kotlin.getValue
 
