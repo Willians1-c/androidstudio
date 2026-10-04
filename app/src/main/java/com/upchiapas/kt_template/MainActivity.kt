@@ -4,14 +4,10 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import com.upchiapas.kt_template.ui.theme.Kt_templateTheme
+import androidx.lifecycle.viewmodel.compose.viewModel
+import com.upchiapas.kt_template.CalculadoraCu.CalculadoraCuaPage
+import com.upchiapas.kt_template.CalculadoraCu.CalculadoraCuaViewModel
+import com.upchiapas.kt_template.ui.theme.Kt_templateTheme // Ajusta según el nombre del paquete de tu tema
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -19,29 +15,12 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             Kt_templateTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
-                }
+                // Instancia el ViewModel dentro del contexto de Compose
+                val viewModel: CalculadoraCuaViewModel = viewModel()
+
+                // Muestra la vista de la calculadora
+                CalculadoraCuaPage(viewModel = viewModel)
             }
         }
-    }
-}
-
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    Kt_templateTheme {
-        Greeting("Android")
     }
 }
